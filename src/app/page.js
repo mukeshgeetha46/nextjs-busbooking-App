@@ -1,103 +1,222 @@
+"use client";
+
 import Image from "next/image";
+import style from "./styles/header.module.css"
+import { FaBusAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineDateRange } from "react-icons/md";
+import { useRef } from "react";
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  const dateInputRef = useRef(null); // Create a ref for the input field
+
+  // Function to handle icon click
+  const handleIconClick = () => {
+    if (dateInputRef.current) {
+      dateInputRef.current.focus(); // Focus on the input field
+      dateInputRef.current.showPicker(); // Open the date picker (if supported)
+    }
+  };
+
+
+  const menuItems = [
+    { src: "/images/travel.png", title: "Buses" },
+    { src: "/images/discount.png", title: "Offers" },
+    { src: "/images/ticket.png", title: "Track Ticket" },
+    { src: "/images/24-hours-support.png", title: "Need Help ?" },
+  ];
+
+  const transportNames = [
+    { name: "MTC", color: "red" },
+    { name: "BMTC", color: "blue" },
+    { name: "APSRTC", color: "green" },
+    { name: "DTC", color: "purple" },
+    { name: "GSRTC", color: "orange" },
+    { name: "HRTC", color: "teal" },
+    
+  ];
+
+  return (
+    <div>
+      <div className={style.header} >
+     
+
+     <div className={style.menu}>
+     <div className={style.logo}>
+       <img className={style.logoimg} src="/images/large.png" />
+     </div>
+    <div className={style.menus}>
+    {menuItems.map((item, index) => (
+       <div key={index} className={style.option}>
+         <Image src={item.src} alt={item.title} width={30} height={30} />
+         <p className={style.title}>{item.title}</p>
+       </div>
+     ))}
+       
+    </div>
+     </div>
+
+     <div className={style.marquee}>
+      <p>
+        {transportNames.map((item, index) => (
+          <span key={index} style={{ backgroundColor: item.color,color:"white",borderRadius:"10px",padding:"10px",width:"300px" }}>
+            {item.name}
+          </span>
+        ))}
+      </p>
+    </div>
+
+     <div className={style.rightcontent}>
+      <img src="/images/mobile-password-forgot.png" className={style.loginimg} width={60} height={50} />
+       <button className={style.authbutton}>Sign in/ Sign up</button>
+     </div>
+   </div>
+   <div className={style.banner}>
+  <img 
+    src="/images/COLOURBOX37688966.webp" 
+    style={{
+      width: "100%",
+      height: "400px",
+      position: "relative"
+    }} 
+  />
+  <div 
+    className={style.bookingdiv}
+   
+  >
+    <p >Book Bus Tickets</p>
+       <div className={style.bookinginput} >
+       <div style={{ position: "relative" }}>
+  <input
+    type="text"
+    placeholder="From Station"
+    className={style.nofocusborder} // Use className instead of class
+  />
+  <span
+    style={{
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      marginLeft: "15px",
+      pointerEvents: "none", // Allow clicks to pass through
+    }}
+  >
+    <FaBusAlt size={25} color="#86e3b5" />
+  </span>
+       </div>
+       <div style={{ position: "relative" }}>
+       <input type="text" class={style.nofocusborder} placeholder="To Station" />
+       <span style={{
+         position: "absolute",
+         top: "0",
+         left: "0",
+         width: "100%",
+         height: "100%",
+         display: "flex",
+         justifyContent: "flex-start", // Center horizontally
+         alignItems: "center",
+         marginLeft:"15px" ,
+         pointerEvents: "none",
+       }}>
+       <FaLocationDot size={25} color="#86e3b5" />
+       </span>
+       </div>
+       <div style={{ position: "relative" }}>
+      <input
+        type="date"
+        ref={dateInputRef} // Attach the ref to the input field
+        className={style.nofocusborder}
+        style={{
+          width: "450px",
+          paddingLeft: "40px",
+          fontSize: "15px",
+        }}
+      />
+      <span
+        style={{
+          position: "absolute",
+          top: "0",
+          left: "0",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          marginLeft: "15px",
+          pointerEvents: "none", // Allow clicks to pass through
+        }}
+      >
+        <MdOutlineDateRange
+          size={25}
+          color="#86e3b5"
+          style={{ pointerEvents: "auto", cursor: "pointer" }} // Make the icon clickable
+          onClick={handleIconClick} // Handle icon click
+        />
+      </span>
+      <span
+        style={{
+          position: "absolute",
+          top: "0",
+          marginRight:"20px",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          pointerEvents:"none",
+        }}
+      >
+        <button style={{
+          backgroundColor:"#203ed1",
+          width:"80px",
+          fontSize:"12px",
+          margin:"20px",
+          padding:"6px",
+          color:"white",
+          borderRadius:"10px",
+          border:"1px solid black"
+        }}>Today</button>
+      </span>
+      <span
+        style={{
+          position: "absolute",
+          top: "0",
+          right:"70px",
+          marginRight:"20px",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          pointerEvents:"none",
+        }}
+      >
+        <button style={{
+          backgroundColor:"#203ed1",
+          width:"80px",
+          fontSize:"12px",
+          margin:"20px",
+          padding:"6px",
+          color:"white",
+          borderRadius:"10px",
+          border:"1px solid black"
+        }}>Tommorrow</button>
+      </span>
+
+     
+    </div>
+      
+
+    </div>
+  </div>
+</div>
     </div>
   );
 }

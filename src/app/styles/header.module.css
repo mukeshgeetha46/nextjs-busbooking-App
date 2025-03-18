@@ -1,0 +1,155 @@
+.header{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookingdiv{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.logoimg{
+ height: 70px;
+ width: 170px;
+ margin-top: 5px;
+}
+
+.menu{
+ display: flex;
+ align-items: center;
+}
+.menus{
+ display: flex;
+ align-items: center;
+}
+
+.option{
+ padding: 10px;
+ display: flex;
+}
+
+.title{
+    display: flex;
+    align-items: end;
+    padding-left: 5px;
+}
+
+.authbutton{
+   padding: 10px;
+   background-color: #0D9B8A;
+   border-radius: 10px;
+   margin: 10px;
+}
+
+.rightcontent{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .marquee p {
+    display: inline-block;
+    animation: scroll 15s linear infinite;
+
+  }
+  
+  .marquee span {
+    margin: 0 10px; /* Space between names */
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .banner{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nofocusborder{
+    height: 40px;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f2f2f2;
+    width: 300px;
+    padding-left: 40px;
+    font-size: 15px;
+   
+  }
+  .nofocusborder::placeholder{
+   font-size: 12px;
+   margin-left: 140px;
+  }
+  
+  .nofocusborder[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
+  .nofocusborder[type="date"]::-moz-focus-inner {
+    display: none;
+  }
+
+  .bookinginput{
+    background-color: white;
+  display: flex;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  }
+
+
+
+  @media (max-width: 600px) {
+    .bookinginput{
+      display: block;
+    }
+    .bookingdiv{
+    margin-top: 80px;
+    width: 90%;
+    }
+   
+    .nofocusborder{
+      width: 100%;
+    }
+
+    .loginimg{
+      display: none;
+    }
+
+    .authbutton{
+     width: 140px;
+   }
+
+   .menus{
+    display: none;
+   }
+
+   .logoimg{
+    height: 70px;
+    width: 400px;
+    margin-top: 5px;
+   }
+  }
