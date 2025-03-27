@@ -219,7 +219,7 @@ export default function Home() {
    </div>
 
 
-<div><BottomNav /></div>   
+<div><BottomNav menuItems={menuItems} /></div>   
     </div>
 
 
