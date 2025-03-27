@@ -79,7 +79,7 @@ export default function Home() {
       display:"flex",
       flexDirection:"column",
       justifyContent:"space-between",
-      height:"88vh"
+      height:"91.5vh"
     }}>
  <div className={style.banner}>
   <img 
