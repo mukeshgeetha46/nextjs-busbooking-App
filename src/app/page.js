@@ -6,6 +6,7 @@ import { FaBusAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineDateRange } from "react-icons/md";
 import { useRef } from "react";
+import BottomNav from "./component/layout/BottomNav";
 
 
 export default function Home() {
@@ -73,14 +74,17 @@ export default function Home() {
        <button className={style.authbutton}>Sign in/ Sign up</button>
      </div>
    </div>
-   <div className={style.banner}>
+
+    <div style={{
+      display:"flex",
+      flexDirection:"column",
+      justifyContent:"space-between",
+      height:"88vh"
+    }}>
+ <div className={style.banner}>
   <img 
     src="/images/COLOURBOX37688966.webp" 
-    style={{
-      width: "100%",
-      height: "400px",
-      position: "relative"
-    }} 
+    className={style.bannerimage} 
   />
   <div 
     className={style.bookingdiv}
@@ -132,12 +136,8 @@ export default function Home() {
       <input
         type="date"
         ref={dateInputRef} // Attach the ref to the input field
-        className={style.nofocusborder}
-        style={{
-          width: "450px",
-          paddingLeft: "40px",
-          fontSize: "15px",
-        }}
+        className={style.nofocusborder1}
+       
       />
       <span
         style={{
@@ -216,7 +216,14 @@ export default function Home() {
 
     </div>
   </div>
-</div>
+   </div>
+
+
+<div><BottomNav /></div>   
+    </div>
+
+
+  
     </div>
   );
 }

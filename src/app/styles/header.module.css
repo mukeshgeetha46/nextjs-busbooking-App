@@ -86,6 +86,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  .bannerimage{
+   width: 100%;
+   height: 400px;
+   position: relative;
+  }
   
   .nofocusborder{
     height: 40px;
@@ -95,6 +101,19 @@
     margin: 10px;
     border: 1px solid #f2f2f2;
     width: 300px;
+    padding-left: 40px;
+    font-size: 15px;
+   
+  }
+
+  .nofocusborder1{
+    height: 40px;
+    outline: none;
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f2f2f2;
+    width: 450px;
     padding-left: 40px;
     font-size: 15px;
    
@@ -120,25 +139,42 @@
 
   }
 
+  .datefield{
+    width: 450px;
+    padding-left: 40px;
+    font-size: 15px;
+  }
 
 
   @media (max-width: 600px) {
     .bookinginput{
       display: block;
+      width: auto;
     }
     .bookingdiv{
     margin-top: 80px;
     width: 90%;
     }
    
-    .nofocusborder{
-      width: 100%;
+    .nofocusborder1{
+      width: 96%;
+     
+    padding-left: 40px;
+    font-size: 15px;
     }
 
     .loginimg{
       display: none;
     }
 
+    
+    .bannerimage{
+      width: 100%;
+      display: none;
+      height: 400px;
+      position: relative;
+      
+     }
     .authbutton{
      width: 140px;
    }
