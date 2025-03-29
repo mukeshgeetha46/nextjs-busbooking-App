@@ -212,7 +212,19 @@ export default function Home() {
 
      
     </div>
-      
+      <div style={{
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center"
+      }}>
+        <button style={{
+          fontSize:"18px",
+          padding:"6px",
+          borderRadius:"10px",
+          color:"white",
+          backgroundColor:"blue"
+        }}>Search</button>
+      </div>
 
     </div>
   </div>
